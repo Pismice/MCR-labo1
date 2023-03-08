@@ -1,2 +1,5 @@
-public class Observer {
+
+
+interface Observer {
+    void update();
 }
