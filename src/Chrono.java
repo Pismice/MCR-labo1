@@ -1,7 +1,7 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Chrono {
+public class Chrono extends Subject {
     Chrono() {
         name = "Chrono #"+count++;
         timer = new Timer();
@@ -12,6 +12,7 @@ public class Chrono {
                 try {
                     Thread.sleep(1000);
                     time++;
+                    notify();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -30,5 +31,5 @@ public class Chrono {
         setTime(0);
     }
     public long getTime(){ return time; }
-    private void setTime(long t){ time = t; }
+    public void setTime(long t){ time = t; }
 }
