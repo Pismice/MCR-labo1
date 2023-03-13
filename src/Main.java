@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.security.InvalidParameterException;
 
 public class Main extends JFrame {
@@ -13,10 +16,11 @@ public class Main extends JFrame {
             throw new InvalidParameterException("Le nombre de chronos (passé en paramètre) doit être supérieur à " + chronosMin + " et inférieur à " + chronosMax + "!");
         }
 
+
         // 2. Création de la fenêtre de base
         f = new JFrame("Panneau de contrôle");
         f.setSize(900,500);
-
+        Chrono c = new Chrono();
         // 3. Affichage des options pour CHAQUE chrono
         /*for(int i = 1; i <= nbChronos; i++) {*/
             JPanel pnl = new JPanel();
@@ -44,6 +48,18 @@ public class Main extends JFrame {
         allCtrl.add(allRoman);
         allCtrl.add(allArab);
         allCtrl.add(allNumerique);
+        allArab.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    System.out.println("Test0a");
+                    CadranArab a = new CadranArab(c);
+                    System.out.println("Test0b");
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
 
         // 5. Ajout du tout à la JFrame principale
         //f.add(allCtrl);
