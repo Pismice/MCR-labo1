@@ -16,21 +16,27 @@ public class Main{
             throw new InvalidParameterException("Le nombre de chronos (passé en paramètre) doit être supérieur à " + chronosMin + " et inférieur à " + chronosMax + "!");
         }
 
-
         // 2. Création de la fenêtre de base
         f = new JFrame("Panneau de contrôle");
         f.setLayout(new FlowLayout());
         f.setSize(900,500);
-        Chrono c = new Chrono();
+        Chrono[] chronos = new Chrono[nbChronos];
+
         // 3. Affichage des options pour CHAQUE chrono
         for(int i = 1; i <= nbChronos; i++) {
+            final int id = i;
             JPanel pnl = new JPanel();
+            JLabel name = new JLabel("Chrono #" + i);
             JButton start = new JButton("Démarrer");
+            start.addActionListener(e -> chronos[id-1].demarrer());
             JButton stop = new JButton("Arrêter");
+            stop.addActionListener(e -> chronos[id-1].arreter());
             JButton reset = new JButton("Réinitialiser");
+            stop.addActionListener(e -> chronos[id-1].reinitialiser());
             JButton roman = new JButton("Cadran romain");
             JButton arab = new JButton("Cadran arabe");
             JButton numeric = new JButton("Numérique");
+            pnl.add(name);
             pnl.add(start);
             pnl.add(stop);
             pnl.add(reset);
@@ -43,24 +49,14 @@ public class Main{
 
         // 4. Affichage des options pour intéragir avec TOUS les chronos
         JPanel allCtrl = new JPanel();
+        JLabel title = new JLabel("Tous les chronos");
         JButton allRoman = new JButton("Cadre romain");
         JButton allArab = new JButton("Cadre arabe");
         JButton allNumerique = new JButton("Numérique");
+        allCtrl.add(title);
         allCtrl.add(allRoman);
         allCtrl.add(allArab);
         allCtrl.add(allNumerique);
-        allArab.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    System.out.println("Test0a");
-                    CadranArab a = new CadranArab(c);
-                    System.out.println("Test0b");
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        });
 
         // 5. Ajout du tout à la JFrame principale
         f.add(allCtrl);

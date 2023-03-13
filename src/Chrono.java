@@ -24,7 +24,7 @@ public class Chrono extends Subject {
     private Timer timer;
     private long time;
     private TimerTask timerTask;
-    public void demarrer() throws InterruptedException { timer.schedule(timerTask, 0); }
+    public void demarrer() { timer.schedule(timerTask, 0); }
     public void arreter(){ timer.cancel(); }
     public void reinitialiser(){
         arreter();
