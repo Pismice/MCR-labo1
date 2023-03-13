@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 
-public class Main extends JFrame {
+public class Main{
     static JFrame f;
     public static void main(String[] args) {
         // 1. Récupération du nombre de chronos à lancer
@@ -19,10 +19,11 @@ public class Main extends JFrame {
 
         // 2. Création de la fenêtre de base
         f = new JFrame("Panneau de contrôle");
+        f.setLayout(new FlowLayout());
         f.setSize(900,500);
         Chrono c = new Chrono();
         // 3. Affichage des options pour CHAQUE chrono
-        /*for(int i = 1; i <= nbChronos; i++) {*/
+        for(int i = 1; i <= nbChronos; i++) {
             JPanel pnl = new JPanel();
             JButton start = new JButton("Démarrer");
             JButton stop = new JButton("Arrêter");
@@ -37,7 +38,7 @@ public class Main extends JFrame {
             pnl.add(arab);
             pnl.add(numeric);
             f.add(pnl);
-        //}
+        }
 
 
         // 4. Affichage des options pour intéragir avec TOUS les chronos
@@ -62,7 +63,7 @@ public class Main extends JFrame {
         });
 
         // 5. Ajout du tout à la JFrame principale
-        //f.add(allCtrl);
+        f.add(allCtrl);
         f.setBackground(Color.blue);
         f.setVisible(true);
     }
