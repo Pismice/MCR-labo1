@@ -3,7 +3,7 @@ import java.util.TimerTask;
 
 public class Chrono extends Subject {
     Chrono() {
-        name = "Chrono #"+count++;
+        id = ++count;
         timer = new Timer();
         time = 0;
         timerTask = new TimerTask() {
@@ -20,7 +20,7 @@ public class Chrono extends Subject {
         };
     }
     static private short count = 0;
-    private String name;
+    private final int id;
     private Timer timer;
     private long time;
     private TimerTask timerTask;
@@ -32,4 +32,5 @@ public class Chrono extends Subject {
     }
     public long getTime(){ return time; }
     public void setTime(long t){ time = t; }
+    public int getId() { return id;}
 }

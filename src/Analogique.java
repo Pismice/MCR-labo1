@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class Analogique extends AffichageTemporel{
-    Analogique(Chrono c) throws IOException {
+    Analogique(Chrono c){
         super(c);
     }
 }

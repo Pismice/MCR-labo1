@@ -1,8 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.security.InvalidParameterException;
 
 public class Main{
@@ -25,6 +22,7 @@ public class Main{
         // 3. Affichage des options pour CHAQUE chrono
         for(int i = 1; i <= nbChronos; i++) {
             final int id = i;
+            chronos[id-1] = new Chrono(); // FIXME: moyen de faire sur meme ligne que tableau ?
             JPanel pnl = new JPanel();
             JLabel name = new JLabel("Chrono #" + i);
             JButton start = new JButton("Démarrer");
@@ -34,8 +32,11 @@ public class Main{
             JButton reset = new JButton("Réinitialiser");
             stop.addActionListener(e -> chronos[id-1].reinitialiser());
             JButton roman = new JButton("Cadran romain");
+            roman.addActionListener(e -> new CadranRomain(chronos[id-1]));
             JButton arab = new JButton("Cadran arabe");
+            arab.addActionListener(e -> new CadranArabe(chronos[id-1]));
             JButton numeric = new JButton("Numérique");
+            numeric.addActionListener(e -> new Numerique(chronos[id-1]));
             pnl.add(name);
             pnl.add(start);
             pnl.add(stop);

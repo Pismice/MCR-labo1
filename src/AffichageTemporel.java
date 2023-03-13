@@ -1,22 +1,21 @@
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImagingOpException;
-import java.io.IOException;
 
-public class AffichageTemporel extends JFrame implements Observer {
+public class AffichageTemporel implements Observer {
     static JFrame f;
-    AffichageTemporel(Chrono c) throws IOException {
+    static final int height = 200;
+    static final int width = 200;
+
+    private final Chrono chrono;
+    long sec, min, hour;
+
+    AffichageTemporel(Chrono c){
         this.chrono = c;
         f = new JFrame();
-        f.setSize(200, 200);
+        f.setSize(width,height);
         f.setVisible(true);
         System.out.println("Test");
-
-
     }
-    private final Chrono chrono;
-    private long sec, min, hour;
+
     public void update() {
         long l = chrono.getTime();
         hour = l / 3600;
