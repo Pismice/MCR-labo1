@@ -10,6 +10,7 @@ public class AffichageTemporel extends JPanel implements Observer {
 
     AffichageTemporel(Chrono c) {
         chrono = c;
+        this.chrono.attach(this);
         this.setPreferredSize(new Dimension(width, height));
         this.setSize(width, height);
     }

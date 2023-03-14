@@ -24,41 +24,46 @@ public class Analogique extends AffichageTemporel{
         drawAiguille(g, Color.black, hour * 30 + 0.5 * min, 30, 6);
     }
     private void drawAiguille(Graphics g, Color c, double a, int lo, int la){
-        int x = lo, y = lo, coord = 105;
+        double x = 0, y = 0;
+        int coord = 105;
         a %= 360;
         if(a == 0){
-            x *= 0;
-            y *= -1;
+            x = 0;
+            y = -1;
         }
-        else if(a == 90){
-            y *= 0;
+        if(a == 90){
+            x = 1;
+            y = 0;
         }
-        else if(a == 180){
-            x *= 0;
+        if(a == 180){
+            x = 0;
+            y = 1;
         }
-        else if(a == 270){
-            x *= -1;
-            y *= 0;
+        if(a == 270){
+            x = -1;
+            y = 0;
         }
-        else if (a > 0 && a < 90){
-            x *= Math.cos(a);
-            y *= Math.sin(a);
+        if (a > 0 && a < 90){
+            x = Math.cos(a);
+            y = Math.sin(a);
         }
-        else if(a < 180){
-            x *= Math.sin(a-90);
-            y *= Math.cos(a-90);
+        if(a > 90 && a < 180){
+            x = Math.sin(a-90);
+            y = Math.cos(a-90);
         }
-        else if(a < 270){
-            x *= Math.cos(a-180);
-            y *= Math.sin(a-180);
+        if(a > 180 && a < 270){
+            x = Math.cos(a-180);
+            y = Math.sin(a-180);
         }
-        else if(a < 360){
-            x *= Math.sin(a-270);
-            y *= Math.cos(a-270);
+        if(a > 270 && a < 360){
+            x = Math.sin(a-270);
+            y = Math.cos(a-270);
         }
         g.setColor(c);
         ((Graphics2D)g).setStroke(new BasicStroke(la));
+        x *= lo;
+        y *= lo;
 
-        g.drawLine(coord, coord,x+coord,y+coord);
+        g.drawLine(coord, coord,(int) x+coord,(int) y+coord);
     }
 }

@@ -15,7 +15,7 @@ public class Chrono extends Subject {
                     while(!stop) {
                         Thread.sleep(1000);
                         time++;
-                        System.out.println("Run : " + time);
+                        System.out.println("Time : " + time);
                         notifyChrono();
                     }
                 } catch (InterruptedException e){
