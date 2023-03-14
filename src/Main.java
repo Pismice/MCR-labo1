@@ -34,11 +34,35 @@ public class Main{
             JButton reset = new JButton("Réinitialiser");
             reset.addActionListener(e -> chronos[id-1].reinitialiser());
             JButton roman = new JButton("Cadran romain");
-            roman.addActionListener(e -> new CadranRomain(chronos[id-1]));
+            roman.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JFrame f = new JFrame();
+                    new CadranRomain(chronos[id-1], f);
+                    f.pack();
+                    f.setVisible(true);
+                }
+            });
             JButton arab = new JButton("Cadran arabe");
-            arab.addActionListener(e -> new CadranArabe(chronos[id-1]));
+            arab.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JFrame f = new JFrame();
+                    new CadranArabe(chronos[id-1], f);
+                    f.pack();
+                    f.setVisible(true);
+                }
+            });
             JButton numeric = new JButton("Numérique");
-            numeric.addActionListener(e -> new Numerique(chronos[id-1]));
+            numeric.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JFrame f = new JFrame();
+                    new Numerique(chronos[id-1], f);
+                    f.pack();
+                    f.setVisible(true);
+                }
+            });
             pnl.add(name);
             pnl.add(start);
             pnl.add(stop);

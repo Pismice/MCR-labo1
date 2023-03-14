@@ -3,12 +3,6 @@ import java.awt.*;
 
 public class Analogique extends AffichageTemporel{
 
-    Analogique(Chrono c, String filename){
-        super(c);
-        image = Toolkit.getDefaultToolkit().getImage(filename);
-        image = image.getScaledInstance(200, 200, Image.SCALE_AREA_AVERAGING);
-    }
-
     Analogique(Chrono c, JFrame f, String filename){
         super(c,f);
         image = Toolkit.getDefaultToolkit().getImage(filename);
