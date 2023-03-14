@@ -12,6 +12,7 @@ public class AffichageTemporel extends JPanel implements Observer {
         chrono = c;
         this.chrono.attach(this);
         this.setPreferredSize(new Dimension(width, height));
+        this.setLayout(new GridBagLayout());
         this.setSize(width, height);
     }
 

@@ -6,6 +6,7 @@ import java.security.InvalidParameterException;
 
 public class Main{
     static JFrame f;
+
     public static void main(String[] args) {
         // 1. Récupération du nombre de chronos à lancer
         final int chronosMax = 9;
@@ -17,8 +18,8 @@ public class Main{
 
         // 2. Création de la fenêtre de base
         f = new JFrame("Panneau de contrôle");
-        f.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        f.setSize(900,500);
+        f.setLayout(new FlowLayout(FlowLayout.CENTER));
+        f.setSize(800,250);
         Chrono[] chronos = new Chrono[nbChronos];
 
         // 3. Affichage des options pour CHAQUE chrono
@@ -82,7 +83,7 @@ public class Main{
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame allInfos = new JFrame("Tous les chronos romains");
-                allInfos.setLayout(new FlowLayout(FlowLayout.RIGHT));
+                allInfos.setLayout(new FlowLayout());
                 allInfos.setSize(900,500);
                 for(int i = 1; i <= nbChronos; i++) {
                     allInfos.add(new CadranRomain(chronos[i-1]));
@@ -93,7 +94,35 @@ public class Main{
             }
         });
         JButton allArab = new JButton("Cadran arabe");
+        allArab.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame allInfos = new JFrame("Tous les chronos arabes");
+                allInfos.setLayout(new FlowLayout());
+                allInfos.setSize(900,500);
+                for(int i = 1; i <= nbChronos; i++) {
+                    allInfos.add(new CadranArabe(chronos[i-1]));
+                }
+                allInfos.pack();
+                allInfos.revalidate();
+                allInfos.setVisible(true);
+            }
+        });
         JButton allNumerique = new JButton("Numérique");
+        allNumerique.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame allInfos = new JFrame("Tous les chronos numériques");
+                allInfos.setLayout(new FlowLayout());
+                allInfos.setSize(900,500);
+                for(int i = 1; i <= nbChronos; i++) {
+                    allInfos.add(new Numerique(chronos[i-1]));
+                }
+                allInfos.pack();
+                allInfos.revalidate();
+                allInfos.setVisible(true);
+            }
+        });
         allCtrl.add(title);
         allCtrl.add(allRoman);
         allCtrl.add(allArab);
