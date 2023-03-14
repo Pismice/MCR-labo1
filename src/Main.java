@@ -26,7 +26,7 @@ public class Main{
             final int id = i;
             chronos[id-1] = new Chrono(); // FIXME: moyen de faire sur meme ligne que tableau ?
             JPanel pnl = new JPanel();
-            JLabel name = new JLabel("Chrono #" + i);
+            JLabel name = new JLabel(chronos[id-1].getName());
             JButton start = new JButton("Démarrer");
             start.addActionListener(e -> chronos[id-1].demarrer());
             JButton stop = new JButton("Arrêter");
