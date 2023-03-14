@@ -18,11 +18,9 @@ public class Subject {
             throw new RuntimeException("Invalid parameter transmitted");
         observerList.remove(o);
     }
-    void notify(Observer o){
-        if (o == null)
-            throw new RuntimeException("Invalid parameter transmitted");
+   void notifyChrono(){
         setChanged();
-        notifyObservers(o);
+        notifyObservers();
     }
     private void setChanged(){
         changed = true;
@@ -33,9 +31,7 @@ public class Subject {
     private void clearChanged(){
         changed = false;
     }
-    private void notifyObservers(Observer o){
-        if (o == null)
-            throw new RuntimeException("Invalid parameter transmitted");
+    private void notifyObservers(){
         if(hasChanged()){
             for(Observer ob : observerList){
                 ob.update();

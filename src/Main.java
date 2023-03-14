@@ -30,7 +30,7 @@ public class Main{
             JButton stop = new JButton("Arrêter");
             stop.addActionListener(e -> chronos[id-1].arreter());
             JButton reset = new JButton("Réinitialiser");
-            stop.addActionListener(e -> chronos[id-1].reinitialiser());
+            reset.addActionListener(e -> chronos[id-1].reinitialiser());
             JButton roman = new JButton("Cadran romain");
             roman.addActionListener(e -> new CadranRomain(chronos[id-1]));
             JButton arab = new JButton("Cadran arabe");

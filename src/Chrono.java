@@ -12,7 +12,7 @@ public class Chrono extends Subject {
                 try {
                     Thread.sleep(1000);
                     time++;
-                    notify();
+                    notifyChrono();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -33,4 +33,7 @@ public class Chrono extends Subject {
     public long getTime(){ return time; }
     public void setTime(long t){ time = t; }
     public int getId() { return id;}
+    public String getName(){
+        return "Chrono#"+getId();
+    }
 }
