@@ -24,16 +24,16 @@ public class Chrono extends Subject {
     private Timer timer;
     private long time;
     private TimerTask timerTask;
-    public void demarrer() { timer.schedule(timerTask, 0); }
+    public void demarrer() { timer.schedule(timerTask, 0);}
     public void arreter(){ timer.cancel(); }
     public void reinitialiser(){
         arreter();
         setTime(0);
     }
     public long getTime(){ return time; }
-    public void setTime(long t){ time = t; }
+    public void setTime(long t){ this.time = t; }
     public int getId() { return id;}
     public String getName(){
-        return "Chrono#"+getId();
+        return "Chrono #"+getId();
     }
 }
