@@ -6,16 +6,21 @@ public class Chrono extends Subject {
         id = ++count;
         timer = new Timer();
         time = 0;
+        alreadyRunning = false;
+        stop = false;
         timerTask = new TimerTask() {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(1000);
-                    time++;
-                    notifyChrono();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+                    while(!stop) {
+                        Thread.sleep(1000);
+                        time++;
+                        System.out.println("Run : " + time);
+                        notifyChrono();
+                    }
+                } catch (InterruptedException e){
+                        throw new RuntimeException(e);
+                    }
             }
         };
     }
@@ -23,9 +28,19 @@ public class Chrono extends Subject {
     private final int id;
     private Timer timer;
     private long time;
+    private Boolean stop;
     private TimerTask timerTask;
-    public void demarrer() { timer.schedule(timerTask, 0);}
-    public void arreter(){ timer.cancel(); }
+    private Boolean alreadyRunning;
+    public void demarrer() {
+        if(!alreadyRunning){
+            alreadyRunning = true;
+            timer.schedule(timerTask, 0);
+        }
+    }
+    public void arreter(){
+        stop = true;
+        timer.cancel();
+    }
     public void reinitialiser(){
         arreter();
         setTime(0);

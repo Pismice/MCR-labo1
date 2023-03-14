@@ -25,7 +25,7 @@ public class Subject {
     private void setChanged(){
         changed = true;
     }
-    private boolean hasChanged(){
+    boolean hasChanged(){
         return changed;
     }
     private void clearChanged(){
