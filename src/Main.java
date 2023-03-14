@@ -15,7 +15,7 @@ public class Main{
 
         // 2. Création de la fenêtre de base
         f = new JFrame("Panneau de contrôle");
-        f.setLayout(new FlowLayout());
+        f.setLayout(new FlowLayout(FlowLayout.RIGHT));
         f.setSize(900,500);
         Chrono[] chronos = new Chrono[nbChronos];
 
@@ -51,8 +51,8 @@ public class Main{
         // 4. Affichage des options pour intéragir avec TOUS les chronos
         JPanel allCtrl = new JPanel();
         JLabel title = new JLabel("Tous les chronos");
-        JButton allRoman = new JButton("Cadre romain");
-        JButton allArab = new JButton("Cadre arabe");
+        JButton allRoman = new JButton("Cadran romain");
+        JButton allArab = new JButton("Cadran arabe");
         JButton allNumerique = new JButton("Numérique");
         allCtrl.add(title);
         allCtrl.add(allRoman);
