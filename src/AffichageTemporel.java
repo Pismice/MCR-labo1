@@ -13,7 +13,10 @@ public class AffichageTemporel extends JPanel implements Observer {
         this.chrono = c;
         this.chrono.attach(this);
         f = new JFrame();
-
+        f.setSize(220, 240);
+        f.setLocationRelativeTo(null);
+        f.revalidate();
+        f.setVisible(true);
     }
 
     public void update() {

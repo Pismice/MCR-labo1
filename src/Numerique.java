@@ -4,7 +4,7 @@ import java.io.IOException;
 public class Numerique extends AffichageTemporel{
     Numerique(Chrono c){
         super(c);
-        JLabel infos = new JLabel("Chrono #" + c.getId() + ": " + hour + "h " + min + "m " + sec + "s");
+        JLabel infos = new JLabel(chrono.getName() + ": " + hour + "h " + min + "m " + sec + "s");
         f.add(infos);
     }
     public void update(){
