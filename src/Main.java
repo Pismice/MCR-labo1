@@ -58,9 +58,14 @@ public class Main{
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame allInfos = new JFrame("Tous les chronos romains");
+                allInfos.setLayout(new FlowLayout(FlowLayout.RIGHT));
+                allInfos.setSize(900,500);
                 for(int i = 1; i <= nbChronos; i++) {
                     new CadranRomain(chronos[i-1], allInfos);
                 }
+                allInfos.pack();
+                allInfos.revalidate();
+                allInfos.setVisible(true);
             }
         });
         JButton allArab = new JButton("Cadran arabe");

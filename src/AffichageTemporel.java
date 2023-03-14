@@ -10,25 +10,29 @@ public class AffichageTemporel extends JPanel implements Observer {
     long sec, min, hour;
 
     AffichageTemporel(Chrono c){
+        this.setSize(width, height);
+        this.setPreferredSize(new Dimension(width, height));
         chrono = c;
+        this.chrono.attach(this);
         f = new JFrame();
-        init();
+        //f.setSize(220, 240);
+        f.add(this);
+        f.setBackground(Color.BLUE); // FIXME : mettre gris
+        f.setLocationRelativeTo(null);
+        f.revalidate();
+        f.setVisible(true);
+        f.pack();
     }
 
     AffichageTemporel(Chrono c, JFrame tf) {
         chrono = c;
         f = tf;
-        init();
+        this.setPreferredSize(new Dimension(width, height));
+        this.setSize(width, height);
+
+        f.add(this);
     }
 
-    private void init() {
-        this.chrono.attach(this);
-        f.setSize(220, 240);
-        f.setBackground(Color.BLUE); // FIXME : mettre gris
-        f.setLocationRelativeTo(null);
-        f.revalidate();
-        f.setVisible(true);
-    }
 
     public void update() {
         long l = chrono.getTime();
