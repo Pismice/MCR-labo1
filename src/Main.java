@@ -58,25 +58,7 @@ public class Main{
             numeric.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JFrame f = new JFrame();
-                    f.add(new Numerique(chronos[id-1]));
-                    f.pack();
-                    f.setVisible(true);
-                }
-            });
-            pnl.add(name);
-            pnl.add(start);
-            pnl.add(stop);
-            pnl.add(reset);
-            pnl.add(roman);
-            pnl.add(arab);
-            pnl.add(numeric);
-            f.add(pnl);
-        }
-
-
-        // 4. Affichage des options pour intéragir avec TOUS les chronos
-        JPanel allCtrl = new JPanel();
+     JPanel allCtrl = new JPanel();
         JLabel title = new JLabel("Tous les chronos");
         JButton allRoman = new JButton("Cadran romain");
         allRoman.addActionListener(new ActionListener() {
@@ -115,6 +97,67 @@ public class Main{
                 JFrame allInfos = new JFrame("Tous les chronos numériques");
                 allInfos.setLayout(new FlowLayout());
                 allInfos.setSize(900,500);
+                for(int i = 1; i <= nbChronos; i++) {
+                    allInfos.add(new Numerique(chronos[i-1]));
+                }
+                allInfos.pack();
+                allInfos.revalidate();
+                allInfos.setVisible(true);
+            }
+        });               JFrame f = new JFrame();
+                    f.add(new Numerique(chronos[id-1]));
+                    f.pack();
+                    f.setVisible(true);
+                }
+            });
+            pnl.add(name);
+            pnl.add(start);
+            pnl.add(stop);
+            pnl.add(reset);
+            pnl.add(roman);
+            pnl.add(arab);
+            pnl.add(numeric);
+            f.add(pnl);
+        }
+
+
+        // 4. Affichage des options pour intéragir avec TOUS les chronos
+        JPanel allCtrl = new JPanel();
+        JLabel title = new JLabel("Tous les chronos");
+        JButton allRoman = new JButton("Cadran romain");
+        allRoman.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame allInfos = new JFrame("Tous les chronos romains");
+                allInfos.setLayout(new FlowLayout());
+                for(int i = 1; i <= nbChronos; i++) {
+                    allInfos.add(new CadranRomain(chronos[i-1]));
+                }
+                allInfos.pack();
+                allInfos.revalidate();
+                allInfos.setVisible(true);
+            }
+        });
+        JButton allArab = new JButton("Cadran arabe");
+        allArab.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame allInfos = new JFrame("Tous les chronos arabes");
+                allInfos.setLayout(new FlowLayout());
+                for(int i = 1; i <= nbChronos; i++) {
+                    allInfos.add(new CadranArabe(chronos[i-1]));
+                }
+                allInfos.pack();
+                allInfos.revalidate();
+                allInfos.setVisible(true);
+            }
+        });
+        JButton allNumerique = new JButton("Numérique");
+        allNumerique.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame allInfos = new JFrame("Tous les chronos numériques");
+                allInfos.setLayout(new FlowLayout());
                 for(int i = 1; i <= nbChronos; i++) {
                     allInfos.add(new Numerique(chronos[i-1]));
                 }
