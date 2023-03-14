@@ -21,12 +21,13 @@ public class Analogique extends AffichageTemporel{
         g.drawString(chrono.getName(), 75,100);
         drawAiguille(g, Color.red, sec * 6, 70, 2);
         drawAiguille(g, Color.blue, min * 6, 50, 4);
-        drawAiguille(g, Color.black, hour * 30 + 0.5 * min, 30, 6);
+        drawAiguille(g, Color.black, hour * 30, 30, 6);
     }
     private void drawAiguille(Graphics g, Color c, double a, int lo, int la){
         double x = 0, y = 0;
         int coord = 105;
         a %= 360;
+        a *= Math.PI / 180;
         if(a == 0){
             x = 0;
             y = -1;
@@ -44,8 +45,8 @@ public class Analogique extends AffichageTemporel{
             y = 0;
         }
         if (a > 0 && a < 90){
-            x = Math.cos(a);
-            y = Math.sin(a);
+            x = Math.sin(a);
+            y = -Math.cos(a);
         }
         if(a > 90 && a < 180){
             x = Math.sin(a-90);
