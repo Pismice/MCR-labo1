@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.security.InvalidParameterException;
 
 public class Main{
@@ -52,6 +54,15 @@ public class Main{
         JPanel allCtrl = new JPanel();
         JLabel title = new JLabel("Tous les chronos");
         JButton allRoman = new JButton("Cadran romain");
+        allRoman.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame allInfos = new JFrame("Tous les chronos romains");
+                for(int i = 1; i <= nbChronos; i++) {
+                    new CadranRomain(chronos[i-1], allInfos);
+                }
+            }
+        });
         JButton allArab = new JButton("Cadran arabe");
         JButton allNumerique = new JButton("Numérique");
         allCtrl.add(title);

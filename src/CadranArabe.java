@@ -8,7 +8,10 @@ import java.util.Objects;
 public class CadranArabe extends Analogique{
     CadranArabe(Chrono c) {
         super(c, "cadran_chiffres_arabes.jpg");
+    }
 
-
+    CadranArabe(Chrono c, JFrame f) {
+        super(c, "cadran_chiffres_arabes.jpg");
+        this.f = f;
     }
 }
