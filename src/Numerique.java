@@ -3,8 +3,8 @@ import java.io.IOException;
 
 public class Numerique extends AffichageTemporel{
 
-    Numerique(Chrono c, JFrame f){
-        super(c,f);
+    Numerique(Chrono c){
+        super(c);
         JLabel infos = new JLabel(chrono.getName() + ": " + hour + "h " + min + "m " + sec + "s");
         this.add(infos);
     }

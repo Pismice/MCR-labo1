@@ -38,7 +38,7 @@ public class Main{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    new CadranRomain(chronos[id-1], f);
+                    f.add(new CadranRomain(chronos[id-1]));
                     f.pack();
                     f.setVisible(true);
                 }
@@ -48,7 +48,7 @@ public class Main{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    new CadranArabe(chronos[id-1], f);
+                    f.add(new CadranArabe(chronos[id-1]));
                     f.pack();
                     f.setVisible(true);
                 }
@@ -58,7 +58,7 @@ public class Main{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    new Numerique(chronos[id-1], f);
+                    f.add(new Numerique(chronos[id-1]));
                     f.pack();
                     f.setVisible(true);
                 }
@@ -85,7 +85,7 @@ public class Main{
                 allInfos.setLayout(new FlowLayout(FlowLayout.RIGHT));
                 allInfos.setSize(900,500);
                 for(int i = 1; i <= nbChronos; i++) {
-                    new CadranRomain(chronos[i-1], allInfos);
+                    allInfos.add(new CadranRomain(chronos[i-1]));
                 }
                 allInfos.pack();
                 allInfos.revalidate();
