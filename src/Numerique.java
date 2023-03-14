@@ -7,7 +7,7 @@ public class Numerique extends AffichageTemporel{
     Numerique(Chrono c){
         super(c);
         infos = new JLabel();
-        infos.setText(chrono.getName() + ": " + hour + "h " + min + "m " + sec + "s");
+        update();
         this.add(infos);
     }
     JLabel infos;

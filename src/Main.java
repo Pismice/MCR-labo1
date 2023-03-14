@@ -130,7 +130,6 @@ public class Main{
 
         // 5. Ajout du tout à la JFrame principale
         f.add(allCtrl);
-        f.setBackground(Color.blue);
         f.setVisible(true);
     }
 }
