@@ -20,7 +20,8 @@ public class Main{
 
         // 2. Création de la fenêtre de base
         f = new JFrame("Panneau de contrôle");
-        f.setLayout(new FlowLayout(FlowLayout.CENTER));
+        f.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        f.setResizable(false);
         f.setSize(800,250);
         Chrono[] chronos = new Chrono[nbChronos];
 

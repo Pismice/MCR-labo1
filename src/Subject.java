@@ -7,7 +7,7 @@ public class Subject {
     Subject(){
         observerList = new LinkedList<>();
     }
-    private final LinkedList<Observer> observerList;
+    private final LinkedList<Observer> observerList; //Liste content tout les observeurs ratacher au Sujet
 
     /**
      * Ajoute l'observer à la liste d'observeur

@@ -3,6 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Chrono extends Subject {
+    /**
+     * Constructeur du chrono initialise l'id, le timer et la taskPerformer
+     */
     Chrono() {
         id = ++count;
         ActionListener taskPerformer = new ActionListener() {
@@ -15,10 +18,10 @@ public class Chrono extends Subject {
         int delay = 1000;
         timer = new Timer(delay,taskPerformer);
     }
-    static private short count = 0;
-    private final int id;
-    private final Timer timer;
-    private long time = 0;
+    static private short count = 0; //nombre de chrono utile pour l'id
+    private final int id; //id du chrono
+    private final Timer timer; //timer du chrono
+    private long time = 0; //temps actuel
 
     /**
      * Demarre le timer
