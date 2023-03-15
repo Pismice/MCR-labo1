@@ -8,30 +8,57 @@ public class Chrono extends Subject {
         ActionListener taskPerformer = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ++time;
-                notifyChrono();
+                ++time; /* Incrementation du temps puis notif des observateurs */
+                notifyObservers();
             }
         };
+        int delay = 1000;
         timer = new Timer(delay,taskPerformer);
     }
     static private short count = 0;
-    static private int delay = 1000;
     private final int id;
-    private Timer timer;
+    private final Timer timer;
     private long time = 0;
-    public void demarrer() {
+
+    /**
+     * Demarre le timer
+     */
+    void demarrer() {
         timer.start();
     }
-    public void arreter(){
+
+    /**
+     * Stop le timer
+     */
+    void arreter(){
         timer.stop();
     }
-    public void reinitialiser(){
+
+    /**
+     * Reinitialise le timer
+     */
+    void reinitialiser(){
         time = 0;
-        notifyChrono();
+        notifyObservers();
     }
-    public long getTime(){ return time; }
-    public int getId() { return id;}
-    public String getName(){
+
+    /**
+     *
+     * @return le temps actuelle
+     */
+    long getTime(){ return time; }
+
+    /**
+     *
+     * @return l'id de l'objet
+     */
+    private int getId() { return id;}
+
+    /**
+     *
+     * @return le nom de l'objet (Chrono #1)
+     */
+    String getName(){
         return "Chrono #"+getId();
     }
 }

@@ -10,7 +10,8 @@ public class Numerique extends AffichageTemporel{
         update();
         this.add(infos);
     }
-    JLabel infos;
+    private final JLabel infos;
+    @Override
     public void update(){
         super.update();
         infos.setText(chrono.getName() + ": " + hour + "h " + min + "m " + sec + "s");

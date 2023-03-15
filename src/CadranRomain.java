@@ -1,9 +1,6 @@
-import javax.swing.*;
-import java.io.IOException;
-
 public class CadranRomain extends Analogique {
 
     CadranRomain(Chrono c){
-        super(c, "cadran_chiffres_romains.jpg");
+        super(c, "cadran_chiffres_romains.jpg"); /*Filename du cadran romain */
     }
 }

@@ -1,5 +1,8 @@
 import javax.swing.*;
 
 interface Observer {
-    void update();
+    /**
+     * Met a jour le contenue visuel des frames
+     */
+    public void update();
 }
