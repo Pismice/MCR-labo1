@@ -65,13 +65,12 @@ public class Main {
                     f.pack();
                     f.setVisible(true);
                     f.addWindowListener(new WindowAdapter() {
-                                            @Override
-                                            public void windowClosing(WindowEvent e) {
-                                                super.windowClosing(e);
-                                                ca.detach();
-                                            }
-                                        }
-                    );
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            super.windowClosing(e);
+                            ca.detach();
+                        }
+                    });
                 }
             });
             JButton numeric = new JButton("Numérique");
@@ -84,13 +83,12 @@ public class Main {
                     f.pack();
                     f.setVisible(true);
                     f.addWindowListener(new WindowAdapter() {
-                                            @Override
-                                            public void windowClosing(WindowEvent e) {
-                                                super.windowClosing(e);
-                                                nu.detach();
-                                            }
-                                        }
-                    );
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            super.windowClosing(e);
+                            nu.detach();
+                        }
+                    });
                 }
             });
 
@@ -192,6 +190,12 @@ public class Main {
         allCtrl.add(allNumerique);
 
         // 5. Ajout du tout à la JFrame principale
+        f.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
         f.add(allCtrl);
         f.setVisible(true);
     }
