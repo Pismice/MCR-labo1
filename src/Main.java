@@ -26,23 +26,23 @@ public class Main{
         Chrono[] chronos = new Chrono[nbChronos];
 
         // 3. Affichage des options pour CHAQUE chrono
-        for(int i = 1; i <= nbChronos; i++) {
+        for(int i = 0; i < nbChronos; i++) {
             final int id = i;
-            chronos[id-1] = new Chrono(); // FIXME: moyen de faire sur meme ligne que tableau ?
+            chronos[id] = new Chrono();
             JPanel pnl = new JPanel();
-            JLabel name = new JLabel(chronos[id-1].getName());
+            JLabel name = new JLabel(chronos[id].getName());
             JButton start = new JButton("Démarrer");
-            start.addActionListener(e -> chronos[id-1].demarrer());
+            start.addActionListener(e -> chronos[id].demarrer());
             JButton stop = new JButton("Arrêter");
-            stop.addActionListener(e -> chronos[id-1].arreter());
+            stop.addActionListener(e -> chronos[id].arreter());
             JButton reset = new JButton("Réinitialiser");
-            reset.addActionListener(e -> chronos[id-1].reinitialiser());
+            reset.addActionListener(e -> chronos[id].reinitialiser());
             JButton roman = new JButton("Cadran romain");
             roman.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    CadranRomain cr = new CadranRomain(chronos[id-1]);
+                    CadranRomain cr = new CadranRomain(chronos[id]);
                     f.add(cr);
                     f.pack();
                     f.setVisible(true);
@@ -60,7 +60,7 @@ public class Main{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    CadranArabe ca = new CadranArabe(chronos[id - 1]);
+                    CadranArabe ca = new CadranArabe(chronos[id]);
                     f.add(ca);
                     f.pack();
                     f.setVisible(true);
@@ -79,7 +79,7 @@ public class Main{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    Numerique nu = new Numerique(chronos[id-1]);
+                    Numerique nu = new Numerique(chronos[id]);
                     f.add(nu);
                     f.pack();
                     f.setVisible(true);
@@ -116,9 +116,9 @@ public class Main{
                     allInfos.setLayout(new FlowLayout());
                     allInfos.setSize(900,500);
                     CadranRomain[] crtab = new CadranRomain[nbChronos];
-                    for(int i = 1; i <= nbChronos; i++) {
-                        crtab[i-1] = new CadranRomain(chronos[i-1]);
-                        allInfos.add(crtab[i-1]);
+                    for(int i = 0; i < nbChronos; i++) {
+                        crtab[i] = new CadranRomain(chronos[i]);
+                        allInfos.add(crtab[i]);
                     }
                     allInfos.pack();
                     allInfos.revalidate();
@@ -127,8 +127,8 @@ public class Main{
                         @Override
                         public void windowClosing(WindowEvent e) {
                             super.windowClosing(e);
-                            for (int i = 1; i <= nbChronos; i++){
-                                crtab[i-1].detach();
+                            for (int i = 0; i < nbChronos; i++){
+                                crtab[i].detach();
                             }
                         }
                     });
@@ -142,9 +142,9 @@ public class Main{
                     allInfos.setLayout(new FlowLayout());
                     allInfos.setSize(900,500);
                     CadranArabe[] catab = new CadranArabe[nbChronos];
-                    for(int i = 1; i <= nbChronos; i++) {
-                        catab[i-1] = new CadranArabe(chronos[i-1]);
-                        allInfos.add(catab[i-1]);
+                    for(int i = 0; i < nbChronos; i++) {
+                        catab[i] = new CadranArabe(chronos[i]);
+                        allInfos.add(catab[i]);
                     }
                     allInfos.pack();
                     allInfos.revalidate();
@@ -153,8 +153,8 @@ public class Main{
                         @Override
                         public void windowClosing(WindowEvent e) {
                             super.windowClosing(e);
-                            for (int i = 1; i <= nbChronos; i++){
-                                catab[i-1].detach();
+                            for (int i = 0; i < nbChronos; i++){
+                                catab[i].detach();
                             }
                         }
                     });
@@ -168,9 +168,9 @@ public class Main{
                     allInfos.setLayout(new FlowLayout());
                     allInfos.setSize(900,500);
                     Numerique[] nutab = new Numerique[nbChronos];
-                    for(int i = 1; i <= nbChronos; i++) {
-                        nutab[i-1] = new Numerique(chronos[i-1]);
-                        allInfos.add(nutab[i-1]);
+                    for(int i = 0; i < nbChronos; i++) {
+                        nutab[i] = new Numerique(chronos[i]);
+                        allInfos.add(nutab[i]);
                     }
                     allInfos.pack();
                     allInfos.revalidate();
@@ -179,8 +179,8 @@ public class Main{
                         @Override
                         public void windowClosing(WindowEvent e) {
                             super.windowClosing(e);
-                            for (int i = 1; i <= nbChronos; i++){
-                                nutab[i-1].detach();
+                            for (int i = 0; i < nbChronos; i++){
+                                nutab[i].detach();
                             }
                         }
                     });
