@@ -15,9 +15,4 @@ public class Numerique extends AffichageTemporel{
         super.update();
         infos.setText(chrono.getName() + ": " + hour + "h " + min + "m " + sec + "s");
     }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-    }
 }
