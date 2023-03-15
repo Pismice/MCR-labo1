@@ -1,5 +1,9 @@
 import java.util.LinkedList;
 
+/**
+ * Classe qui contient les informations qui seront écoutées
+ * @author Jérémie Santoro & Théo Coutaudier
+ */
 public class Subject {
     /**
      * Constructeur, création de la liste d'observeur

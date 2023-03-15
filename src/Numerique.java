@@ -1,5 +1,9 @@
 import javax.swing.*;
 
+/**
+ * Classe qui permet d'afficher un chrono sous forme numérique
+ * @author Jérémie Santoro & Théo Coutaudier
+ */
 public class Numerique extends AffichageTemporel {
     /**
      * Constructeur pour definir le texte à afficher dans un jlabel

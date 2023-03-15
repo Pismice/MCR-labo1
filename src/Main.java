@@ -7,7 +7,7 @@ import java.awt.event.WindowEvent;
 import java.security.InvalidParameterException;
 
 public class Main {
-    static JFrame f;
+    static JFrame f; // frame principale du programme
 
     public static void main(String[] args) {
         // 1. Récupération du nombre de chronos à lancer

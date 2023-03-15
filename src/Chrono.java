@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Classe qui implémente un chrono
+ * @author Jérémie Santoro & Théo Coutaudier
+ */
 public class Chrono extends Subject {
     /**
      * Constructeur du chrono initialise l'id, le timer et la taskPerformer
