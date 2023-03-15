@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class AffichageTemporel extends JPanel implements Observer {
     static private final int height = 200; // Hauteur de la fenetre
@@ -9,6 +11,7 @@ public class AffichageTemporel extends JPanel implements Observer {
 
     /**
      * Constructeur pour attacher l'objet au chrono et preparer le panel
+     *
      * @param c le chrono à rataccher
      */
     AffichageTemporel(Chrono c) {
@@ -17,7 +20,38 @@ public class AffichageTemporel extends JPanel implements Observer {
         this.setPreferredSize(new Dimension(width, height));
         this.setLayout(new GridBagLayout());
         this.setSize(width, height);
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (c.getRunning()) {
+                    c.arreter();
+                } else {
+                    c.demarrer();
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
+
     @Override
     public void update() {
         long l = chrono.getTime();
@@ -29,7 +63,7 @@ public class AffichageTemporel extends JPanel implements Observer {
     /**
      * detache l'objet du chrono
      */
-    void detach(){
+    void detach() {
         this.chrono.detach(this);
     }
 
