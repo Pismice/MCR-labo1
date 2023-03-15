@@ -1,8 +1,7 @@
 import javax.swing.*;
-
 /**
- * Classe qui permet d'afficher un chrono sous forme numérique
- * @author Jérémie Santoro & Théo Coutaudier
+ * Class qui implemente des horloges de types Numérique
+ * @author Jeremie Santoro & Théo Coutaudier
  */
 public class Numerique extends AffichageTemporel {
     /**

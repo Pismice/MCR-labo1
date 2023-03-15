@@ -3,6 +3,10 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Class qui implemente l'affichage d'une holroge a travers un JPanel
+ * @author Jeremie Santoro & Théo Coutaudier
+ */
 public class AffichageTemporel extends JPanel implements Observer {
     static private final int height = 200; // Hauteur de la fenetre
     static private final int width = 200; // Largeur de la fenetre

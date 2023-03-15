@@ -1,5 +1,9 @@
 import java.awt.*;
 
+/**
+ * Class qui implemente des horloges de types Analogique avec cadran à chiffre arabe
+ * @author Jeremie Santoro & Théo Coutaudier
+ */
 public class CadranArabe extends Analogique {
     /**
      * Constructeur qui transmet le filename de l'image de l'horloge

@@ -1,5 +1,9 @@
 import java.awt.*;
 
+/**
+ * Class qui implemente des horloges de types Analogique
+ * @author Jeremie Santoro & Théo Coutaudier
+ */
 public class Analogique extends AffichageTemporel {
     /**
      * Constructeur qui ajoute l'initialisation de l'image
