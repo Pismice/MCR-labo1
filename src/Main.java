@@ -22,7 +22,7 @@ public class Main{
         f = new JFrame("Panneau de contrôle");
         f.setLayout(new FlowLayout(FlowLayout.RIGHT));
         f.setResizable(false);
-        f.setSize(800,250);
+        f.setSize(700,60 * (nbChronos+1));
         Chrono[] chronos = new Chrono[nbChronos];
 
         // 3. Affichage des options pour CHAQUE chrono
