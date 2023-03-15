@@ -24,5 +24,9 @@ public class AffichageTemporel extends JPanel implements Observer {
         sec = l % 60;
     }
 
+    public void detach(){
+        this.chrono.detach(this);
+    }
+
 
 }

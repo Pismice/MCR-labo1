@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.security.InvalidParameterException;
 
 public class Main{
@@ -39,9 +41,17 @@ public class Main{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    f.add(new CadranRomain(chronos[id-1]));
+                    CadranRomain cr = new CadranRomain(chronos[id-1]);
+                    f.add(cr);
                     f.pack();
                     f.setVisible(true);
+                    f.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            super.windowClosing(e);
+                            cr.detach();
+                        }
+                    });
                 }
             });
             JButton arab = new JButton("Cadran arabe");
@@ -49,67 +59,40 @@ public class Main{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     JFrame f = new JFrame();
-                    f.add(new CadranArabe(chronos[id-1]));
+                    CadranArabe ca = new CadranArabe(chronos[id - 1]);
+                    f.add(ca);
                     f.pack();
                     f.setVisible(true);
+                    f.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            super.windowClosing(e);
+                            ca.detach();
+                            }
+                        }
+                    );
                 }
             });
             JButton numeric = new JButton("Numérique");
             numeric.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-     JPanel allCtrl = new JPanel();
-        JLabel title = new JLabel("Tous les chronos");
-        JButton allRoman = new JButton("Cadran romain");
-        allRoman.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame allInfos = new JFrame("Tous les chronos romains");
-                allInfos.setLayout(new FlowLayout());
-                allInfos.setSize(900,500);
-                for(int i = 1; i <= nbChronos; i++) {
-                    allInfos.add(new CadranRomain(chronos[i-1]));
-                }
-                allInfos.pack();
-                allInfos.revalidate();
-                allInfos.setVisible(true);
-            }
-        });
-        JButton allArab = new JButton("Cadran arabe");
-        allArab.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame allInfos = new JFrame("Tous les chronos arabes");
-                allInfos.setLayout(new FlowLayout());
-                allInfos.setSize(900,500);
-                for(int i = 1; i <= nbChronos; i++) {
-                    allInfos.add(new CadranArabe(chronos[i-1]));
-                }
-                allInfos.pack();
-                allInfos.revalidate();
-                allInfos.setVisible(true);
-            }
-        });
-        JButton allNumerique = new JButton("Numérique");
-        allNumerique.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame allInfos = new JFrame("Tous les chronos numériques");
-                allInfos.setLayout(new FlowLayout());
-                allInfos.setSize(900,500);
-                for(int i = 1; i <= nbChronos; i++) {
-                    allInfos.add(new Numerique(chronos[i-1]));
-                }
-                allInfos.pack();
-                allInfos.revalidate();
-                allInfos.setVisible(true);
-            }
-        });               JFrame f = new JFrame();
-                    f.add(new Numerique(chronos[id-1]));
+                    JFrame f = new JFrame();
+                    Numerique nu = new Numerique(chronos[id-1]);
+                    f.add(nu);
                     f.pack();
                     f.setVisible(true);
+                    f.addWindowListener(new WindowAdapter() {
+                         @Override
+                         public void windowClosing(WindowEvent e) {
+                             super.windowClosing(e);
+                             nu.detach();
+                             }
+                        }
+                    );
                 }
             });
+
             pnl.add(name);
             pnl.add(start);
             pnl.add(stop);
@@ -123,49 +106,85 @@ public class Main{
 
         // 4. Affichage des options pour intéragir avec TOUS les chronos
         JPanel allCtrl = new JPanel();
-        JLabel title = new JLabel("Tous les chronos");
-        JButton allRoman = new JButton("Cadran romain");
-        allRoman.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame allInfos = new JFrame("Tous les chronos romains");
-                allInfos.setLayout(new FlowLayout());
-                for(int i = 1; i <= nbChronos; i++) {
-                    allInfos.add(new CadranRomain(chronos[i-1]));
+            JLabel title = new JLabel("Tous les chronos");
+            JButton allRoman = new JButton("Cadran romain");
+            allRoman.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JFrame allInfos = new JFrame("Tous les chronos romains");
+                    allInfos.setLayout(new FlowLayout());
+                    allInfos.setSize(900,500);
+                    CadranRomain[] crtab = new CadranRomain[nbChronos];
+                    for(int i = 1; i <= nbChronos; i++) {
+                        crtab[i-1] = new CadranRomain(chronos[i-1]);
+                        allInfos.add(crtab[i-1]);
+                    }
+                    allInfos.pack();
+                    allInfos.revalidate();
+                    allInfos.setVisible(true);
+                    allInfos.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            super.windowClosing(e);
+                            for (int i = 1; i <= nbChronos; i++){
+                                crtab[i-1].detach();
+                            }
+                        }
+                    });
                 }
-                allInfos.pack();
-                allInfos.revalidate();
-                allInfos.setVisible(true);
-            }
-        });
-        JButton allArab = new JButton("Cadran arabe");
-        allArab.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame allInfos = new JFrame("Tous les chronos arabes");
-                allInfos.setLayout(new FlowLayout());
-                for(int i = 1; i <= nbChronos; i++) {
-                    allInfos.add(new CadranArabe(chronos[i-1]));
+            });
+            JButton allArab = new JButton("Cadran arabe");
+            allArab.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JFrame allInfos = new JFrame("Tous les chronos arabes");
+                    allInfos.setLayout(new FlowLayout());
+                    allInfos.setSize(900,500);
+                    CadranArabe[] catab = new CadranArabe[nbChronos];
+                    for(int i = 1; i <= nbChronos; i++) {
+                        catab[i-1] = new CadranArabe(chronos[i-1]);
+                        allInfos.add(catab[i-1]);
+                    }
+                    allInfos.pack();
+                    allInfos.revalidate();
+                    allInfos.setVisible(true);
+                    allInfos.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            super.windowClosing(e);
+                            for (int i = 1; i <= nbChronos; i++){
+                                catab[i-1].detach();
+                            }
+                        }
+                    });
                 }
-                allInfos.pack();
-                allInfos.revalidate();
-                allInfos.setVisible(true);
-            }
-        });
-        JButton allNumerique = new JButton("Numérique");
-        allNumerique.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFrame allInfos = new JFrame("Tous les chronos numériques");
-                allInfos.setLayout(new FlowLayout());
-                for(int i = 1; i <= nbChronos; i++) {
-                    allInfos.add(new Numerique(chronos[i-1]));
+            });
+            JButton allNumerique = new JButton("Numérique");
+            allNumerique.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JFrame allInfos = new JFrame("Tous les chronos numériques");
+                    allInfos.setLayout(new FlowLayout());
+                    allInfos.setSize(900,500);
+                    Numerique[] nutab = new Numerique[nbChronos];
+                    for(int i = 1; i <= nbChronos; i++) {
+                        nutab[i-1] = new Numerique(chronos[i-1]);
+                        allInfos.add(nutab[i-1]);
+                    }
+                    allInfos.pack();
+                    allInfos.revalidate();
+                    allInfos.setVisible(true);
+                    allInfos.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            super.windowClosing(e);
+                            for (int i = 1; i <= nbChronos; i++){
+                                nutab[i-1].detach();
+                            }
+                        }
+                    });
                 }
-                allInfos.pack();
-                allInfos.revalidate();
-                allInfos.setVisible(true);
-            }
-        });
+            });
         allCtrl.add(title);
         allCtrl.add(allRoman);
         allCtrl.add(allArab);
